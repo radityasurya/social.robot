@@ -1,0 +1,65 @@
+﻿<Controls:MetroWindow x:Class="SocialRobot.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                      xmlns:viewModels="clr-namespace:SocialRobot.ViewModels"
+                      Title="Social.Robot"
+                      Height="600"
+                      Width="800" 
+                      Icon="pack://siteoforigin:,,,/socialroboticon.ico"
+                      ShowIconOnTitleBar="True"
+                      ShowTitleBar="True"
+                      WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="Settings" />
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Stretch"
+                   Text="Settings" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Controls:MetroAnimatedSingleRowTabControl x:Name="MainTabControl" Grid.Row="0">
+            <TabItem Header="Bot">
+                <viewModels:BotViews/>
+            </TabItem>
+            <TabItem Header="Account">
+                <Label Content="Account goes here..." />
+            </TabItem>
+            <TabItem Header="Proxy">
+                <Label Content="Proxy goes here..." />
+            </TabItem>
+            <TabItem Header="Help">
+                <Label Content="Help goes here..." />
+            </TabItem>
+            <TabItem Header="About">
+                <Label Content="Social Robot Pro 1.0" />
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+
+        <StatusBar Grid.Row="1">
+            <StatusBarItem>SOCIAL.ROBOT</StatusBarItem>
+            <Separator Style="{StaticResource MetroStatusBarSeparator}" />
+            <StatusBarItem>Version</StatusBarItem>
+            <StatusBarItem Content="1.0" />
+        </StatusBar>
+    </Grid>
+</Controls:MetroWindow>
